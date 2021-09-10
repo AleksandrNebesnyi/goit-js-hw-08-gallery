@@ -43,6 +43,7 @@ renderingMarkup(createGalleryItem(galleryItems));
 // Открытие модального окна по клику в img
 
 refs.galleryContainer.addEventListener("click", onOpenModal);
+
 const onOpenModal = function (event) {
   if (event.target.nodeName !== "IMG") {
     return;
@@ -51,26 +52,26 @@ const onOpenModal = function (event) {
   console.log("Modal is open");
 };
 
-refs.overlay.addEventListener("click", onBackdropClick);
-refs.modalCloseBtn.addEventListener("click", onCloseModal);
+// refs.overlay.addEventListener("click", onBackdropClick);
+// refs.modalCloseBtn.addEventListener("click", onCloseModal);
 
-const onCloseModal = function () {
-  if (refs.modal.classList.contains("is-open")) {
-    refs.modal.classList.remove("is-open");
-    console.log("function onCloseModal");
-  }
-};
+// const onCloseModal = function () {
+//   if (refs.modal.classList.contains("is-open")) {
+//     refs.modal.classList.remove("is-open");
+//     console.log("function onCloseModal");
+//   }
+// };
 
-const onBackdropClick = function (event) {
-  if (event.currentTarget === event.target) {
-    console.log("Кликнули именно в бекдроп!!!!");
-    onCloseModal();
-  }
-};
+// const onBackdropClick = function (event) {
+//   if (event.currentTarget === event.target) {
+//     console.log("Кликнули именно в бекдроп!!!!");
+//     onCloseModal();
+//   }
+// };
 
-window.addEventListener("keydown", (evt) => {
-  if (evt.code === "Escape") onCloseModal();
-});
+// window.addEventListener("keydown", (evt) => {
+//   if (evt.code === "Escape") onCloseModal();
+// });
 
 // refs.closeModalBtn.addEventListener("click", onCloseModal);
 // refs.backdrop.addEventListener("click", onBackdropClick);
