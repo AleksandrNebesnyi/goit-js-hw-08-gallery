@@ -86,7 +86,7 @@ function onEscKeyPress(event) {
     onCloseModal();
   }
 }
-
+// Переключение картинок в модальном окне клавишами left, right
 const dataSources = galleryItems.map((image) => image.original);
 console.log(dataSources);
 
