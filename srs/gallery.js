@@ -9,7 +9,6 @@ const refs = {
   modalImage: document.querySelector(".lightbox__image"),
 };
 
-console.log(refs.modal);
 // Создать разметку галереи
 function createGalleryItem(items) {
   return items
@@ -86,4 +85,33 @@ function onEscKeyPress(event) {
   if (isEscKey) {
     onCloseModal();
   }
+}
+
+const dataSources = galleryItems.map((image) => image.original);
+console.log(dataSources);
+
+document.addEventListener("keydown", (e) => {
+  const currentIndex = dataSources.indexOf(refs.modalImage.src);
+  console.log(currentIndex);
+  if (e.key === "ArrowLeft") {
+    leftClick(currentIndex);
+  } else if (e.key === "ArrowRight") {
+    rightClick(currentIndex);
+  }
+});
+
+function leftClick(currentIndex) {
+  let nextIndex = currentIndex - 1;
+  if (nextIndex === -1) {
+    nextIndex = dataSources.length - 1;
+  }
+  refs.modalImage.src = dataSources[nextIndex];
+}
+
+function rightClick(currentIndex) {
+  let nextIndex = currentIndex + 1;
+  if (nextIndex === dataSources.length) {
+    nextIndex = 0;
+  }
+  refs.modalImage.src = dataSources[nextIndex];
 }
